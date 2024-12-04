@@ -1,0 +1,103 @@
+#map {
+  height: 100vh;
+  /* Full viewport height */
+  width: 100%;
+  /* Full width */
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+  /* Full viewport height */
+}
+
+.left-section {
+  flex: 1;
+  /* Takes 1/4 of the total width */
+  background-color: rgb(236, 223, 204);
+  /* Background color for clarity */
+  padding: 20px;
+}
+
+.right-section {
+  flex: 3;
+  /* Takes 3/4 of the total width */
+  background-color: rgb(255, 255, 255);
+  /* Background color for clarity */
+  position: relative;
+}
+
+.list-of-parking ul {
+  list-style-type: none;
+  /* Remove default bullet points */
+  padding-left: 0;
+  /* Remove default padding */
+}
+
+.list-of-parking ul li {
+  background-color: white;
+  margin: 5px 0;
+  /* Adds space between items */
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  /* Adds shadow for a card-like effect */
+}
+
+.search-bar {
+  position: absolute;
+  top: 50px;       /* Adjust for vertical positioning */
+  left: 60px;      /* Adjust for horizontal positioning */
+  z-index: 1000;   /* Ensure it appears on top of the map */
+  width: 30%;    /* Set your preferred width */
+  height: 25px;
+  padding: 8px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background-color: white; /* Make it stand out on the map */
+}
+mat-button-toggle-group {
+  position: absolute;
+  bottom: 20px;   /* Adjust as needed for spacing from the bottom */
+  right: 20px;    /* Adjust as needed for spacing from the right */
+  z-index: 1000;  /* Ensure it appears on top of other elements */
+}
+/* Style for active icons */
+.active-icon {
+  filter: brightness(0) saturate(100%) invert(41%) sepia(70%) saturate(2000%) hue-rotate(200deg) brightness(90%) contrast(85%);
+  transition: filter 0.3s ease; /* Smooth transition */
+}
+
+/* Style for inactive icons */
+.inactive-icon {
+  filter: grayscale(100%) brightness(80%);
+  transition: filter 0.3s ease; /* Smooth transition */
+}
+
+/* Default styles for mat-button-toggle */
+mat-button-toggle {
+  background-color: rgb(236, 223, 204); /* Default background color */
+  height: 80px;
+  width: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none; /* Remove border */
+  box-shadow: none; /* Remove any box shadow */
+  outline: none;
+  transition: background-color 0.3s ease; /* Smooth color transition */
+}
+
+/* Active toggle styles */
+mat-button-toggle.active {
+  background-color: #cf7c41; /* Active background color */
+}
+
+
+mat-button-toggle img {
+  width: 60px;  /* Set your desired width */
+  height: 60px; /* Set your desired height */
+  border: none;          /* Remove border */
+  box-shadow: none;      /* Remove any box shadow */
+  outline: none; 
+}

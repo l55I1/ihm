@@ -1,0 +1,114 @@
+.item {
+    margin: 15px;
+    padding: 5px 10px;
+  }
+.search-bar {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  font-size: 16px;
+}
+  .item-header {
+    display: flex;               /* Align the header content horizontally */
+    justify-content: space-between; /* Space between the name and right text */
+    align-items: center;         /* Vertically center the content */
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1.5em;            /* Make the item name larger */
+  }
+
+  .item-name {
+    flex-grow: 0;            /* Prevent flexible growth */
+    flex-shrink: 1;          /* Allow it to shrink if needed */
+    flex-basis: auto;        /* Use its intrinsic width */
+    max-width: 70%;          /* Limit the width to half the container */
+    margin-right: 10px;      /* Add spacing between elements */
+}
+
+
+  .item-right-text {
+    font-size: 1em;            /* Style the right text */
+    color: #007bff;              /* Example color for the right text */
+  }
+
+  .item-details {
+    margin-top: 5px;
+    color: #555;
+    font-size: 1.2em;            /* Make the description text larger */
+  }
+
+.parking-list-container{
+    display: flex;
+    flex-direction: column; /* Arrange items vertically */
+    max-height: 90vh; /* Set the maximum height of the container */
+    overflow-y: auto; /* Enable vertical scrolling */
+}
+.parking-list-container .item{
+  border-bottom: 1px solid #8B4513; /* Brown color border */
+  padding-bottom: 10px; /* Optional: Add space below the item */
+}
+
+.text-container {
+    margin-top: 1vh;
+    margin-left: 10px;
+    display: flex;
+    justify-content: space-between; /* Pushes one item to the left and the other to the right */
+    align-items: center; /* Vertically aligns items if they have different heights */
+    padding: 10px;
+    margin-bottom: 1vh;
+  }
+
+  .left-text {
+    font-size: 1.6em;
+    color: #333;
+  }
+
+  .right-text {
+    font-size: 1.6em;
+    color: #333;
+  }
+
+  /* For WebKit browsers (Chrome, Safari, Edge) */
+.parking-list-container::-webkit-scrollbar {
+    width: 10px; /* Width of the scrollbar */
+  }
+
+  .parking-list-container::-webkit-scrollbar-track {
+    background: rgb(236, 223, 204); /* Background color of the scrollbar track */
+    border-radius: 10px;
+    border-radius: 10px;
+    padding-top: 20px; /* Adds padding to shorten the scrollbar at the top */
+    padding-bottom: 10px; /* Adds padding to shorten the scrollbar at the bottom */
+  }
+
+  .parking-list-container::-webkit-scrollbar-thumb {
+    background-color: rgb(170, 143, 102); /* Color of the scrollbar thumb */
+    border-radius: 10px;
+    border: 2px solid #f1f1f1; /* Optional border to create padding */
+  }
+
+  .parking-list-container::-webkit-scrollbar-thumb:hover {
+    background: rgb(136, 114, 82);; /* Color when hovering over the scrollbar thumb */
+  }
+
+  .px{
+    margin-top: 10px;
+    margin-bottom: 5px;
+  }
+
+  .tariffs p{
+    margin-left: 30px;
+    margin-bottom: 5px;
+  }
+
+  .tariffs {
+    display: flex;
+    justify-content: space-between;  /* Adds space between the two sections */
+    gap: 20px;  /* Optional: adds space between day and night tariffs */
+  }
+
+  .day-tariffs, .night-tariffs {
+    flex: 1;  /* Ensures both sections take up equal space */
+  }

@@ -1,0 +1,42 @@
+<div class="container">
+      <div class="left-section">
+            <app-parking-list></app-parking-list>
+      </div>
+      <div class="right-section">
+            <input
+                  type="text"
+                  [(ngModel)]="searchText"
+                  placeholder="Search for a parking lot"
+                  class="search-bar"
+                  (ngModelChange)="sendString()"
+                  />
+                  <mat-button-toggle-group 
+                  name="fontStyle" 
+                  aria-label="Font Style" 
+                  (change)="onToggleChange($event)">
+                  
+                  <mat-button-toggle 
+                  value="bold" 
+                  [class.active]="isCar"
+                  (click)="reloadMap()">
+                  <img src="../../assets/car.svg" />
+                </mat-button-toggle>
+                
+                  
+                  <mat-button-toggle 
+                    value="italic" 
+                    [class.active]="!isCar"
+                    (click)="reloadMap()">
+                    <img src="../../assets/bike.svg" />
+                  </mat-button-toggle>
+                  
+                </mat-button-toggle-group>
+                
+            <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+                  integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+
+            <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+                  integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+            <div id="map"></div>
+      </div>
+</div>

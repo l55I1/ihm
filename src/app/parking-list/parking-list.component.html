@@ -1,0 +1,68 @@
+<div class="text-container">
+  <div class="left-text">{{ isCar ? 'Car Parking' : 'Bike Parking' }}</div>
+  <div class="right-text">{{ isCar ? 'Available parking spaces' : 'Total bike racks' }}</div>
+</div>
+
+<div class="parking-list-container">
+  <!-- Car Parking Layout -->
+  <ng-container *ngIf="isCar">
+    <div
+      *ngFor="let item of filteredCarLocations"
+      class="item"
+      (click)="toggleDetails(item); onLocationClick(item.latitude, item.longitude)">
+
+      <div class="item-header">
+        <span class="item-name">{{ item.name || 'Unnamed Parking Lot' }}</span>
+        <span class="item-right-text">
+          {{ item.availableSpaces }}/{{ item.maxCapacity }} spaces
+        </span>
+      </div>
+
+      <!-- Detailed info when item is clicked -->
+      <div *ngIf="item.showDetails" class="item-details">
+        <div class="tariffs" *ngIf="item.tariffs">
+          <div class="day-tariffs">
+            <div class="px"><strong>Fees(Day):</strong></div>
+            <p>15 min: {{ item.tariffs.day.tarif_15 }} €</p>
+            <p>30 min: {{ item.tariffs.day.tarif_30 }} €</p>
+            <p>1 hr: {{ item.tariffs.day.tarif_1h }} €</p>
+            <p>2 hrs: {{ item.tariffs.day.tarif_2h }} €</p>
+          </div>
+
+          <div class="night-tariffs">
+            <div class="px"><strong>Fees (Night):</strong></div>
+            <p>15 min: {{ item.tariffs.night.tarif_nuit_15 }} €</p>
+            <p>30 min: {{ item.tariffs.night.tarif_nuit_30 }} €</p>
+            <p>1 hr: {{ item.tariffs.night.tarif_nuit_1h }} €</p>
+            <p>2 hrs: {{ item.tariffs.night.tarif_nuit_2h }} €</p>
+          </div>
+
+        </div>
+      </div>
+      </div>
+  </ng-container>
+
+  <!-- Bike Parking Layout -->
+  <ng-container *ngIf="!isCar">
+    <div
+      *ngFor="let item of filteredBikeLocations"
+      class="item"
+      (click)="toggleDetails(item); onLocationClick(item.geo_point_2d.lat, item.geo_point_2d.lon)">
+
+      <div class="item-header">
+        <span class="item-name">{{ item.nom_voie || 'Unnamed Bike Parking' }}</span>
+        <span class="item-right-text">
+          {{ item.nb_total_place }} spaces
+        </span>
+      </div>
+
+      <!-- Detailed info when item is clicked -->
+      <div *ngIf="item.showDetails" class="item-details">
+        <p><strong>Commune:</strong> {{ item.nom_commune }}</p>
+        <p><strong>Standard Racks:</strong> {{ item.nb_support_std }}</p>
+        <p><strong>Cargo Racks:</strong> {{ item.nb_support_cargo || 'N/A' }}</p>
+        <p><strong>Managed By:</strong> {{ item.gestionnaire }}</p>
+      </div>
+    </div>
+  </ng-container>
+</div>

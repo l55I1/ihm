@@ -1,0 +1,33 @@
+<div class="container">
+  <h1 class="animated-text">Where do you want to park?</h1>
+  <div class="subtitle">Look up available parking in Rennes!</div>
+
+  <div class="image-container">
+    <h2>Search a parking for your ...</h2>
+    <mat-button-toggle-group name="fontStyle" aria-label="Font Style" (change)="onToggleChange($event)">
+      <mat-button-toggle value="bold">
+        <img src="../../assets/car.svg" />
+      </mat-button-toggle>
+      <mat-button-toggle value="italic">
+        <img src="../../assets/bike.svg" />
+      </mat-button-toggle>
+    </mat-button-toggle-group>
+  </div>
+
+  <div class="search-bar">
+    <div class="search-container">
+      <input
+        type="text"
+        placeholder="Search parking locations..."
+        [(ngModel)]="searchQuery"
+        (input)="onSearch()"
+        (keydown.enter)="navigateToMapPage()"
+      />
+      <img src="../../assets/search-svgrepo-com.svg" alt="Search" class="search-icon" 
+      (click)="navigateToMapPage()"/>
+    </div>
+  </div>
+  
+  
+
+</div>
